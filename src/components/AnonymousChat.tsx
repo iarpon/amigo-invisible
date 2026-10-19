@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Send, RefreshCw, Radio, ShieldCheck, Terminal, Compass } from 'lucide-react';
+import { Send, RefreshCw, Radio, ShieldCheck, Compass } from 'lucide-react';
 
 interface MessageItem {
   id: string;
@@ -42,7 +42,9 @@ export default function AnonymousChat({ groupId, targetName }: AnonymousChatProp
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isInitialLoadRef = useRef(true);
+  const prevMessagesCountRef = useRef(0);
 
   const fetchMessages = useCallback(async (isManual = false) => {
     if (isManual) setIsRefreshing(true);
@@ -69,13 +71,40 @@ export default function AnonymousChat({ groupId, targetName }: AnonymousChatProp
     return () => clearInterval(interval);
   }, [fetchMessages]);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const scrollToBottom = useCallback((smooth = true) => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: scrollContainerRef.current.scrollHeight,
+        behavior: smooth ? 'smooth' : 'auto',
+      });
+    }
+  }, []);
 
+  const currentThread = activeTab === 'target' ? targetThread : santaThread;
+
+  // Scroll to bottom on tab change
   useEffect(() => {
-    scrollToBottom();
-  }, [targetThread.messages, santaThread.messages, activeTab]);
+    scrollToBottom(false);
+  }, [activeTab, scrollToBottom]);
+
+  // Scroll inside container only if new messages arrive and user is near bottom, or on first load
+  useEffect(() => {
+    const currentCount = currentThread.messages.length;
+    const isNew = currentCount > prevMessagesCountRef.current;
+    prevMessagesCountRef.current = currentCount;
+
+    if (!scrollContainerRef.current) return;
+
+    const el = scrollContainerRef.current;
+    const isNearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 150;
+
+    if (isInitialLoadRef.current && currentCount > 0) {
+      isInitialLoadRef.current = false;
+      scrollToBottom(false);
+    } else if (isNew && isNearBottom) {
+      scrollToBottom(true);
+    }
+  }, [currentThread.messages, scrollToBottom]);
 
   const handleSendMessage = async (textToSend?: string) => {
     const text = (textToSend ?? inputMessage).trim();
@@ -100,6 +129,7 @@ export default function AnonymousChat({ groupId, targetName }: AnonymousChatProp
       } else {
         setInputMessage('');
         await fetchMessages();
+        scrollToBottom(true);
       }
     } catch {
       setErrorMsg('Error de conexión en la estafeta');
@@ -114,8 +144,6 @@ export default function AnonymousChat({ groupId, targetName }: AnonymousChatProp
       handleSendMessage();
     }
   };
-
-  const currentThread = activeTab === 'target' ? targetThread : santaThread;
 
   // Intelligence inquiry prompts
   const targetSuggestions = [
@@ -202,7 +230,10 @@ export default function AnonymousChat({ groupId, targetName }: AnonymousChatProp
       </div>
 
       {/* Message Stream */}
-      <div className="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4 bg-archive-pattern">
+      <div
+        ref={scrollContainerRef}
+        className="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4 bg-archive-pattern"
+      >
         {currentThread.messages.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center text-center p-6 text-[#7e978b]">
             <div className="w-14 h-14 rounded-2xl bg-[#142620] border border-[#274436] flex items-center justify-center text-2xl mb-3 text-[#d4a359]">
@@ -263,7 +294,6 @@ export default function AnonymousChat({ groupId, targetName }: AnonymousChatProp
             </div>
           ))
         )}
-        <div ref={messagesEndRef} />
       </div>
 
       {/* Intelligence Suggestions Ribbon */}
