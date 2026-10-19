@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Box surface gradient -->
+    <linearGradient id="hBoxGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#1d3d2f"/>
+      <stop offset="45%" stop-color="#142e23"/>
+      <stop offset="100%" stop-color="#0a1a13"/>
+    </linearGradient>
+
+    <!-- Gold ribbon gradient -->
+    <linearGradient id="hGoldRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="35%" stop-color="#fbbf24"/>
+      <stop offset="70%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+
+    <!-- Coral accent gradient -->
+    <linearGradient id="hCoralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fda4af"/>
+      <stop offset="40%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#e11d48"/>
+    </linearGradient>
+
+    <!-- Fedora hat gradient -->
+    <linearGradient id="hHatGrad" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="40%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Sunglasses lens gradient -->
+    <linearGradient id="hLensGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <linearGradient id="hLensSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Drop shadow -->
+    <filter id="hShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- ==================== ICON MARK (LEFT) ==================== -->
+  <g transform="translate(10, -5) scale(0.72)">
+    <!-- Ambient Glow -->
+    <circle cx="128" cy="132" r="100" fill="#10b981" fill-opacity="0.18" />
+
+    <!-- Sparkles -->
+    <path d="M 218 52 Q 218 64 230 64 Q 218 64 218 76 Q 218 64 206 64 Q 218 64 218 52 Z" fill="url(#hGoldRibbon)"/>
+    <circle cx="234" cy="84" r="2.5" fill="#fef08a"/>
+    <path d="M 38 68 Q 38 78 48 78 Q 38 78 38 88 Q 38 78 28 78 Q 38 78 38 68 Z" fill="url(#hCoralGrad)"/>
+    <circle cx="22" cy="94" r="2.5" fill="#fbbf24"/>
+    <ellipse cx="128" cy="226" rx="68" ry="8" fill="#000000" opacity="0.35" />
+
+    <!-- Box Body -->
+    <g filter="url(#hShadow)">
+      <rect x="52" y="112" width="152" height="106" rx="20" fill="url(#hBoxGrad)" stroke="#2b5542" stroke-width="2"/>
+      <path d="M 54 128 C 54 118 62 114 74 114 L 182 114 C 194 114 202 118 202 128" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.3" fill="none"/>
+      
+      <!-- Ribbons -->
+      <rect x="114" y="112" width="28" height="106" fill="url(#hGoldRibbon)"/>
+      <rect x="117" y="112" width="4" height="106" fill="#fef9c3" opacity="0.6"/>
+      <rect x="52" y="162" width="152" height="24" fill="url(#hGoldRibbon)"/>
+      <rect x="52" y="164" width="152" height="3" fill="#fef9c3" opacity="0.5"/>
+
+      <!-- Smile -->
+      <path d="M 120 196 Q 128 204 136 196" stroke="#fef08a" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <!-- Cheeks -->
+      <circle cx="74" cy="174" r="7" fill="#fb7185" opacity="0.35"/>
+      <circle cx="182" cy="174" r="7" fill="#fb7185" opacity="0.35"/>
+    </g>
+
+    <!-- Sunglasses -->
+    <g filter="url(#hShadow)">
+      <path d="M 64 135 C 64 129 70 126 80 126 L 115 128 C 122 128 125 133 128 135 C 131 133 134 128 141 128 L 176 126 C 186 126 192 129 192 135 L 188 152 C 185 160 174 164 163 164 L 146 163 C 138 163 133 158 131 152 C 129 148 127 148 125 152 C 123 158 118 163 110 163 L 93 164 C 82 164 71 160 68 152 Z" 
+            fill="#0a0f1d" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round"/>
+      <path d="M 72 132 L 111 134 C 117 134 120 138 118 144 L 116 150 C 114 156 108 159 101 159 L 88 159 C 79 159 73 154 72 146 Z" fill="url(#hLensGrad)"/>
+      <path d="M 76 134 L 98 135 L 85 158 L 75 158 C 73 154 73 144 76 134 Z" fill="url(#hLensSheen)"/>
+      <path d="M 145 134 L 184 132 C 186 142 184 152 176 158 L 163 158 C 156 158 150 155 148 149 L 146 143 C 144 138 146 134 145 134 Z" fill="url(#hLensGrad)"/>
+      <path d="M 152 134 L 174 133 L 161 157 L 151 157 C 149 153 149 143 152 134 Z" fill="url(#hLensSheen)"/>
+    </g>
+
+    <!-- Fedora Hat -->
+    <g filter="url(#hShadow)" transform="rotate(-6 128 75)">
+      <path d="M 174 54 C 188 38 198 34 202 26 C 200 36 190 48 178 58 Z" fill="url(#hCoralGrad)"/>
+      <path d="M 76 74 C 74 52 86 36 112 34 C 122 33 134 38 144 34 C 164 36 178 52 176 74 Z" fill="url(#hHatGrad)" stroke="#334155" stroke-width="1.5"/>
+      <path d="M 94 44 C 114 54 138 52 158 44" stroke="#020617" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+      <path d="M 73 70 C 95 76 155 76 177 70 L 178 76 C 156 82 94 82 72 76 Z" fill="url(#hGoldRibbon)"/>
+      <circle cx="172" cy="73" r="3.5" fill="#e11d48" stroke="#fef08a" stroke-width="1"/>
+      <path d="M 46 80 C 72 74 180 74 208 80 C 218 82 216 88 198 90 C 158 95 92 95 54 90 C 40 88 38 82 46 80 Z" fill="url(#hHatGrad)" stroke="#475569" stroke-width="1.5"/>
+    </g>
+
+    <!-- Wax seal -->
+    <g transform="translate(166, 178) scale(0.85)">
+      <path d="M 18 0 C 24 2 28 8 32 14 C 36 20 40 28 36 34 C 32 40 24 44 18 46 C 12 48 4 46 -2 42 C -8 38 -14 32 -14 24 C -14 16 -8 8 -2 4 C 4 0 12 -2 18 0 Z" fill="url(#hCoralGrad)"/>
+      <circle cx="12" cy="22" r="14" fill="#be123c"/>
+      <text x="12" y="27" font-family="serif" font-size="12" font-weight="900" fill="#fef08a" text-anchor="middle">AI</text>
+    </g>
+  </g>
+
+  <!-- ==================== TYPOGRAPHY (RIGHT) ==================== -->
+  <g transform="translate(195, 30)">
+    <!-- Top Pill: CONFIDENTIAL AGENT SERVICE -->
+    <g transform="translate(0, 14)">
+      <rect x="0" y="0" width="168" height="22" rx="4" fill="#182c23" stroke="#2e4d3c" stroke-width="1"/>
+      <circle cx="12" cy="11" r="3" fill="#34d399"/>
+      <text x="24" y="15" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700" fill="#a88243" letter-spacing="2">TOP SECRET · EST. 2026</text>
+    </g>
+
+    <!-- Primary Brand Wordmark -->
+    <g transform="translate(0, 68)">
+      <!-- Drop shadow for text -->
+      <text x="0" y="2" font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="44" font-weight="800" fill="#050a08" letter-spacing="-0.5" opacity="0.6">
+        Amigo Invisible
+      </text>
+      <!-- Main text -->
+      <text x="0" y="0" font-family="Georgia, Cambria, 'Times New Roman', serif" font-size="44" font-weight="800" fill="#fbf8f1" letter-spacing="-0.5">
+        Amigo <tspan fill="url(#hGoldRibbon)">Invisible</tspan>
+      </text>
+    </g>
+
+    <!-- Subtitle with Decorative Quill / Ribbon flair -->
+    <g transform="translate(2, 98)">
+      <text x="0" y="0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" font-weight="500" fill="#8ea698" letter-spacing="1.5">
+        ESTAFETA DE SORTEOS &amp; MENSAJERÍA SECRETA
+      </text>
+    </g>
+
+    <!-- Decorative Gold Divider Line with Diamond -->
+    <g transform="translate(0, 114)">
+      <line x1="0" y1="0" x2="380" y2="0" stroke="#254234" stroke-width="1.5"/>
+      <line x1="0" y1="0" x2="120" y2="0" stroke="url(#hGoldRibbon)" stroke-width="1.5"/>
+      <path d="M 124 0 L 128 -4 L 132 0 L 128 4 Z" fill="#fbbf24"/>
+      <circle cx="140" cy="0" r="1.5" fill="#34d399"/>
+      <circle cx="148" cy="0" r="1" fill="#fef08a"/>
+    </g>
+  </g>
+</svg>

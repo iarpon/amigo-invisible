@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           String        @id @default(uuid())
+  phone        String        @unique
+  name         String
+  passwordHash String
+  isActivated  Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  organizedGroups Group[]    @relation("OrganizerGroups")
+  memberships     GroupMember[]
+  sentMessages     Message[]     @relation("SentMessages")
+  receivedMessages Message[]     @relation("ReceivedMessages")
+}
+
+model Group {
+  id          String        @id @default(uuid())
+  name        String
+  description String?
+  budget      String?
+  eventDate   DateTime?
+  status      String        @default("DRAFT")
+  inviteCode  String        @unique @default(uuid())
+  
+  organizerId String
+  organizer   User          @relation("OrganizerGroups", fields: [organizerId], references: [id], onDelete: Cascade)
+
+  members     GroupMember[]
+  messages    Message[]
+
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model GroupMember {
+  id          String   @id @default(uuid())
+  groupId     String
+  group       Group    @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  targetUserId String?
+  wishlist     String?
+  exclusions   String   @default("[]") // JSON array of excluded target userIds
+
+  createdAt   DateTime @default(now())
+
+  @@unique([groupId, userId])
+}
+
+model Message {
+  id          String   @id @default(uuid())
+  groupId     String
+  group       Group    @relation(fields: [groupId], references: [id], onDelete: Cascade)
+
+  senderId    String
+  sender      User     @relation("SentMessages", fields: [senderId], references: [id], onDelete: Cascade)
+
+  receiverId  String
+  receiver    User     @relation("ReceivedMessages", fields: [receiverId], references: [id], onDelete: Cascade)
+
+  isAnonymous Boolean  @default(false)
+  content     String
+  isRead      Boolean  @default(false)
+
+  createdAt   DateTime @default(now())
+
+  @@index([groupId, senderId, receiverId])
+}

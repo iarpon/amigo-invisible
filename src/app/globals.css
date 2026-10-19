@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-serif: var(--font-fraunces), Georgia, serif;
+    --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+    --font-mono: var(--font-geist-mono), monospace;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Subtle archival watermark pattern */
+.bg-archive-pattern {
+  background-image: radial-gradient(rgba(212, 163, 89, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Wax seal badge aesthetic */
+.wax-seal {
+  background: radial-gradient(circle at 35% 35%, #ca2535 0%, #991b24 60%, #6e0e15 100%);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(18, 36, 29, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 163, 89, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 163, 89, 0.6);
 }

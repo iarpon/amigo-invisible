@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Background subtle radial glow -->
+    <radialGradient id="bgGlow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#047857" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0c1613" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Box surface gradient (luxurious forest emerald) -->
+    <linearGradient id="boxGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#1d3d2f"/>
+      <stop offset="45%" stop-color="#142e23"/>
+      <stop offset="100%" stop-color="#0a1a13"/>
+    </linearGradient>
+
+    <!-- Box lid gradient -->
+    <linearGradient id="lidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#244d3b"/>
+      <stop offset="50%" stop-color="#1a3a2c"/>
+      <stop offset="100%" stop-color="#0e231b"/>
+    </linearGradient>
+
+    <!-- Gold ribbon gradient -->
+    <linearGradient id="goldRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="35%" stop-color="#fbbf24"/>
+      <stop offset="70%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+
+    <!-- Fedora hat gradient -->
+    <linearGradient id="hatGrad" x1="15%" y1="0%" x2="85%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="40%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Coral accent gradient -->
+    <linearGradient id="coralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fda4af"/>
+      <stop offset="40%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#e11d48"/>
+    </linearGradient>
+
+    <!-- Sunglasses lens gradient -->
+    <linearGradient id="lensGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- Lens sheen highlight -->
+    <linearGradient id="lensSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="60%" stop-color="#38bdf8" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Drop shadow for the box -->
+    <filter id="shadowBox" x="-15%" y="-10%" width="130%" height="135%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+
+    <!-- Drop shadow for hat & glasses -->
+    <filter id="shadowPop" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <circle cx="128" cy="132" r="110" fill="url(#bgGlow)" />
+
+  <!-- Festive Floating Sparkles & Confetti Background -->
+  <g opacity="0.9">
+    <!-- Star top right -->
+    <path d="M 218 52 Q 218 64 230 64 Q 218 64 218 76 Q 218 64 206 64 Q 218 64 218 52 Z" fill="url(#goldRibbon)"/>
+    <circle cx="234" cy="84" r="2.5" fill="#fef08a"/>
+    <circle cx="196" cy="38" r="2" fill="#fb7185"/>
+
+    <!-- Star top left -->
+    <path d="M 38 68 Q 38 78 48 78 Q 38 78 38 88 Q 38 78 28 78 Q 38 78 38 68 Z" fill="url(#coralGrad)"/>
+    <circle cx="22" cy="94" r="2.5" fill="#fbbf24"/>
+    <circle cx="58" cy="52" r="2" fill="#34d399"/>
+
+    <!-- Confetti pills -->
+    <rect x="26" y="148" width="9" height="4" rx="2" transform="rotate(35 26 148)" fill="#fbbf24" opacity="0.8"/>
+    <rect x="224" y="160" width="8" height="4" rx="2" transform="rotate(-25 224 160)" fill="#fb7185" opacity="0.8"/>
+    <circle cx="220" cy="192" r="3" fill="#34d399" opacity="0.7"/>
+    <circle cx="36" cy="184" r="2.5" fill="#fef08a" opacity="0.7"/>
+  </g>
+
+  <!-- Ground contact shadow -->
+  <ellipse cx="128" cy="226" rx="72" ry="10" fill="#000000" opacity="0.4" />
+
+  <!-- MAIN CHARACTER: THE INCOGNITO GIFT BOX -->
+  <g filter="url(#shadowBox)">
+    <!-- Box Body -->
+    <rect x="52" y="112" width="152" height="106" rx="20" fill="url(#boxGrad)" stroke="#2b5542" stroke-width="2"/>
+
+    <!-- Box Depth Highlight (Inner Top edge) -->
+    <path d="M 54 128 C 54 118 62 114 74 114 L 182 114 C 194 114 202 118 202 128" stroke="#34d399" stroke-width="1.5" stroke-opacity="0.3" fill="none"/>
+
+    <!-- Vertical Gold Ribbon -->
+    <rect x="114" y="112" width="28" height="106" fill="url(#goldRibbon)"/>
+    <!-- Ribbon inner shadow/shine -->
+    <rect x="117" y="112" width="4" height="106" fill="#fef9c3" opacity="0.6"/>
+    <rect x="138" y="112" width="4" height="106" fill="#92400e" opacity="0.4"/>
+
+    <!-- Horizontal Gold Ribbon -->
+    <rect x="52" y="162" width="152" height="24" fill="url(#goldRibbon)"/>
+    <rect x="52" y="164" width="152" height="3" fill="#fef9c3" opacity="0.5"/>
+    <rect x="52" y="183" width="152" height="3" fill="#92400e" opacity="0.35"/>
+
+    <!-- Cheeky Fun Smile (Peeking out below the shades on the ribbon) -->
+    <path d="M 120 196 Q 128 204 136 196" stroke="#fef08a" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <!-- Cute Blushing Cheeks -->
+    <circle cx="74" cy="174" r="7" fill="#fb7185" opacity="0.35"/>
+    <circle cx="182" cy="174" r="7" fill="#fb7185" opacity="0.35"/>
+  </g>
+
+  <!-- STYLISH INCOGNITO SUNGLASSES -->
+  <g filter="url(#shadowPop)">
+    <!-- Frame Outline / Body -->
+    <path d="M 64 135 C 64 129 70 126 80 126 L 115 128 C 122 128 125 133 128 135 C 131 133 134 128 141 128 L 176 126 C 186 126 192 129 192 135 L 188 152 C 185 160 174 164 163 164 L 146 163 C 138 163 133 158 131 152 C 129 148 127 148 125 152 C 123 158 118 163 110 163 L 93 164 C 82 164 71 160 68 152 Z" 
+          fill="#0a0f1d" stroke="#f59e0b" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Left Lens -->
+    <path d="M 72 132 L 111 134 C 117 134 120 138 118 144 L 116 150 C 114 156 108 159 101 159 L 88 159 C 79 159 73 154 72 146 Z" fill="url(#lensGrad)"/>
+    <!-- Left Lens Sheen reflection -->
+    <path d="M 76 134 L 98 135 L 85 158 L 75 158 C 73 154 73 144 76 134 Z" fill="url(#lensSheen)"/>
+    <line x1="102" y1="135" x2="93" y2="157" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Right Lens -->
+    <path d="M 145 134 L 184 132 C 186 142 184 152 176 158 L 163 158 C 156 158 150 155 148 149 L 146 143 C 144 138 146 134 145 134 Z" fill="url(#lensGrad)"/>
+    <!-- Right Lens Sheen reflection -->
+    <path d="M 152 134 L 174 133 L 161 157 L 151 157 C 149 153 149 143 152 134 Z" fill="url(#lensSheen)"/>
+    <line x1="178" y1="134" x2="169" y2="156" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Golden Pin Details on Glasses Temple -->
+    <circle cx="68" cy="133" r="1.5" fill="#fef08a"/>
+    <circle cx="188" cy="133" r="1.5" fill="#fef08a"/>
+  </g>
+
+  <!-- STYLISH FEDORA / DETECTIVE HAT (Jauntily Tilted) -->
+  <g filter="url(#shadowPop)" transform="rotate(-6 128 75)">
+    <!-- Feather accent in the hat band -->
+    <path d="M 174 54 C 188 38 198 34 202 26 C 200 36 190 48 178 58 Z" fill="url(#coralGrad)"/>
+    <path d="M 178 53 Q 192 40 198 30" stroke="#fef08a" stroke-width="1" stroke-linecap="round"/>
+
+    <!-- Hat Crown -->
+    <path d="M 76 74 C 74 52 86 36 112 34 C 122 33 134 38 144 34 C 164 36 178 52 176 74 Z" 
+          fill="url(#hatGrad)" stroke="#334155" stroke-width="1.5"/>
+
+    <!-- Crown Indent/Crease (Classic Fedora indentation) -->
+    <path d="M 94 44 C 114 54 138 52 158 44" stroke="#020617" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+
+    <!-- Golden Hat Band / Ribbon -->
+    <path d="M 73 70 C 95 76 155 76 177 70 L 178 76 C 156 82 94 82 72 76 Z" fill="url(#goldRibbon)"/>
+    <circle cx="172" cy="73" r="3.5" fill="#e11d48" stroke="#fef08a" stroke-width="1"/>
+
+    <!-- Hat Brim (Curved Elegant Arc) -->
+    <path d="M 46 80 C 72 74 180 74 208 80 C 218 82 216 88 198 90 C 158 95 92 95 54 90 C 40 88 38 82 46 80 Z" 
+          fill="url(#hatGrad)" stroke="#475569" stroke-width="1.5"/>
+    <!-- Brim Bottom Highlight -->
+    <path d="M 52 86 C 88 92 164 92 200 86" stroke="#64748b" stroke-width="1" stroke-opacity="0.4" fill="none"/>
+  </g>
+
+  <!-- GOLDEN WAX SEAL EMBLEM ON CHEST (Bottom Right of Box) -->
+  <g transform="translate(166, 178) scale(0.85)" filter="url(#shadowPop)">
+    <!-- Wax Seal Scalloped Base -->
+    <path d="M 18 0 C 24 2 28 8 32 14 C 36 20 40 28 36 34 C 32 40 24 44 18 46 C 12 48 4 46 -2 42 C -8 38 -14 32 -14 24 C -14 16 -8 8 -2 4 C 4 0 12 -2 18 0 Z" 
+          fill="url(#coralGrad)" stroke="#fecdd3" stroke-width="1.5"/>
+    <circle cx="12" cy="22" r="14" fill="#be123c"/>
+    <circle cx="12" cy="22" r="12" fill="none" stroke="#fbcfe8" stroke-width="1" stroke-dasharray="2 2"/>
+    <!-- Monogram inside wax seal: "AI" -->
+    <text x="12" y="27" font-family="serif" font-size="12" font-weight="900" fill="#fef08a" text-anchor="middle" letter-spacing="1">AI</text>
+  </g>
+</svg>
