@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node -e \"if (process.env.DATABASE_URL) require('child_process').execSync('npx prisma db push --skip-generate', {stdio: 'inherit'})\" && next build",
     "postinstall": "prisma generate",
     "lint": "eslint",
     "seed": "npx tsx prisma/seed.ts"
