@@ -549,10 +549,10 @@ export default function GroupWorkspaceClient({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
               <div>
                 <h3 className="font-serif text-lg font-bold text-[#f5f2eb] flex items-center gap-2">
-                  <span>💡</span> Ficha de Pistas para quien te Regale a Ti
+                  <span>💡</span> Tu Tablón de Pistas & Deseos (para quien te regale a ti)
                 </h3>
-                <p className="font-mono text-xs text-[#809a8c]">
-                  Tu Amigo Secreto podrá consultar estas pistas al abrir su despacho.
+                <p className="font-sans text-xs text-[#809a8c] mt-0.5">
+                  Escribe aquí tus gustos, tallas o aficiones. Tu Amigo Invisible verá estas notas dentro de su sobre secreto.
                 </p>
               </div>
 
@@ -568,7 +568,7 @@ export default function GroupWorkspaceClient({
                 ) : (
                   <Save className="w-3.5 h-3.5" />
                 )}
-                <span>{savedWishlist ? '¡Anotado en Ficha!' : 'Guardar Pistas'}</span>
+                <span>{savedWishlist ? '¡Guardado en el Tablón!' : 'Guardar en mi Tablón'}</span>
               </button>
             </div>
 
